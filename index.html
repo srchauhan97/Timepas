@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<title>open nai karna tha shaitaan 😐😑</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family: system-ui, sans-serif;
+  background: #ffffff;
+  text-align: center;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+.card {
+  background: #f7f7f7;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 15px auto;
+  max-width: 500px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+button {
+  width: 100%;
+  padding: 18px;
+  font-size: 18px;
+  border-radius: 30px;
+  border: none;
+  background: black;
+  color: white;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #777;
+  cursor: not-allowed;
+}
+
+#text {
+  font-size: 1.3em;
+  min-height: 100px;
+}
+
+#floating {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: yellow;
+  padding: 10px 15px;
+  border-radius: 20px;
+  display: none;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<h1>⚠️ kya soch k open kiya? 😈</h1>
+<p>(Seriously useless website)</p>
+
+<div class="card">
+  <div id="text">kuch bhi karne se pehle soch le</div>
+  <button onclick="press()">dont press this</button>
+</div>
+
+<div class="card">
+  <button onclick="confidence()">Confidence Check</button>
+</div>
+
+<div class="card">
+  <button id="shayariBtn" onclick="shyari()">Shyari</button>
+</div>
+
+<div id="floating"></div>
+
+<script>
+let count = 0;
+let shayariIndex = 0;
+
+function press() {
+  count++;
+  const arr = [
+    "theek hai, tune press kar hi diya",
+    "mana kiya tha",
+    "ab ye awkward ho raha hai",
+    "button press karne me kaafi experienced lag rahi tu 😂",
+    "ab bas kar… button bhi tired ho gaya 😕",
+    "tujhe laga kuch hoga? 😂",
+    "hoga… par abhi nahi 😈",
+    "bas teri maze le raha hoon 🤭",
+    "arey bas 😑","had hai😐😑😐😑",
+    "areee bas kar",
+    "jyada press kar rahi tu, phone tera purana hai jaldi hi futega glass😂",
+    "respect 🫡"
+  ];
+
+  document.getElementById("text").innerText =
+    arr[Math.min(count, arr.length - 1)];
+
+  if (count === 5) flash("⚠️ zyada hopes mat rakh 😂");
+}
+
+function confidence() {
+  const msgs = [
+    "Confidence: fake but strong 😎",
+    "Confidence: 😐😑😐😑😑😐😑😐",
+    "Confidence: 🥹🥹🥹🥹",
+    "Confidence: andar se broken?? 💔",
+    "Confidence: noooooob 😂"
+  ];
+  flash(msgs[Math.floor(Math.random() * msgs.length)]);
+}
+
+function shyari() {
+  const t = [
+    "idar kya kar rahi?badi aai shayari sunne wali, bhaag yaha se 😐😒",
+    "acha chal, ek tere liye shytaan 🙈🤭",
+    "तमन्ना फिर मचल जाए अगर तुम मिलने आ जाओ, ये मौसम भी बदल जाए अगर तुम मिलने आ जाओ…मुझे ग़म है कि मैं ने ज़िंदगी में कुछ नहीं पाया, ये ग़म दिल से निकल जाए अगर तुम मिलने आ जाओ,ये दुनिया-भर के झगड़े घर के क़िस्से काम की बातें...बला हर एक टल जाए अगर तुम मिलने आ जाओ,नहीं मिलते हो मुझ से तुम तो सब हमदर्द हैं मेरे....ज़माना मुझ से जल जाए अगर तुम मिलने आ जा",
+    "one more?",
+    "bhaag idhar se 😒😑",
+    "ye le, ro mat",
+    "Mana ki ham adab se baat nahi karte..Par ye maano matlab se baat nahi karte.Ye naram bhasah,pyari baate tere liyea hai...Ham is lehje me kisi se baat nahi karte",
+    "ab kya 😐, shayar nahi hoon… copy paste kar raha hoon",
+    "Uljhi hui zindagi, thake hue hum… thodi si tumse guftagu aur saare masle khatam 🙈"
+  ];
+
+  if (shayariIndex >= t.length) {
+    flash("🚫 shayari khatam ho gayi 😌");
+    document.getElementById("shayariBtn").disabled = true;
+    return;
+  }
+
+  document.getElementById("text").innerText = t[shayariIndex];
+  shayariIndex++;
+}
+
+function flash(msg) {
+  const f = document.getElementById("floating");
+  f.innerText = msg;
+  f.style.display = "block";
+  setTimeout(() => f.style.display = "none", 2000);
+}
+</script>
+
+</body>
+</html>
